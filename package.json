@@ -1,0 +1,72 @@
+{
+  "name": "loam",
+  "version": "0.0.0-development",
+  "description": "Detect if a program has started via logs",
+  "repository": "git@github.com:bbmoz/loam.git",
+  "author": "Joe Lee <blueberrymozart@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "prebuild": "rm -rf dist/",
+    "build": "babel src/ -d dist/",
+    "lint": "eslint src/ test/ && flow",
+    "pretest": "yarn lint",
+    "test": "ava",
+    "prerelease": "yarn build",
+    "release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "loam": "bin/loam"
+  },
+  "keywords": [
+    "logs",
+    "task",
+    "tools",
+    "sysadmin"
+  ],
+  "engines": {
+    "node": ">=6"
+  },
+  "bugs": {
+    "url": "https://github.com/bbmoz/loam/issues"
+  },
+  "homepage": "https://github.com/bbmoz/loam",
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ],
+    "source": [
+      "src/**/*.js"
+    ],
+    "failWithoutAssertions": true,
+    "powerAssert": true,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "devDependencies": {
+    "ava": "^0.21.0",
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
+    "eslint": "^4.3.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "flow-bin": "^0.51.1",
+    "semantic-release": "^6.3.6",
+    "sinon": "^2.4.1",
+    "yargs": "^8.0.2"
+  }
+}

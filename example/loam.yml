@@ -1,0 +1,8 @@
+---
+web:
+  command: node web
+  regexp: listening on port
+
+api:
+  command: node api
+  regexp: listening on port
